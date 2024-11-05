@@ -1,0 +1,153 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #8896ac, #cbd5e6);
+    color: #860000;
+    min-height: 100vh;
+    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+}
+
+h1 {
+    font-size: 3em;
+    color: #862424;
+    margin-top: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 25px;
+}
+
+/* Estilo da galeria com rolagem horizontal */
+.galeria {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    max-width: 90%;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.galeria::-webkit-scrollbar {
+    height: 8px;
+}
+
+.galeria::-webkit-scrollbar-thumb {
+    background-color: #4a90e2;
+    border-radius: 10px;
+}
+
+/* Estilo de cada imagem */
+.imagem-container {
+    flex: 0 0 auto; /* Garante que as imagens fiquem em uma linha */
+    width: 300px;
+    scroll-snap-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagem-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de hover nas imagens */
+.imagem-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.imagem-container:hover img {
+    transform: scale(1.1);
+}
+
+#texto {
+    margin: 30px 20px;
+    font-size: 23px;
+    color: #000000;
+    opacity: 0;
+    transition: opacity 1s ease;
+    text-align: center;
+}
+
+#data-hora {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #488a0b;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    margin-bottom: 10px
+    
+}
+
+/* Estilos da chuva de corações */
+#coracoes {
+    position: fixed; /* Faz os corações ficarem na tela mesmo ao rolar */
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none; /* Impede interações com os corações */
+}
+
+.coracao {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Forma de losango */
+    transform: rotate(45deg); /* Rotaciona para dar a forma de losango */
+    animation: cair 5s linear infinite; /* Animação de queda */
+    opacity: 0.7;
+}
+
+/* Animação para os corações */
+@keyframes cair {
+    to {
+        transform: translateY(100vh); /* Move para o fundo da tela */
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+    .imagem-container {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #texto, #data-hora {
+        font-size: 16px;
+    }
+    
+    .gold{
+        background-color: gold;
+    }
+}
+
+
+
+
+
+
+
+
